@@ -5,7 +5,7 @@ const sendOTPEmail=require("../controller/mail.controller")
 
 
 
-exports.login = async (req, res) => {
+exports.Adminlogin = async (req, res) => {
   try {
     let admin = await Admin.findOne({ email: req.body.email });
     if (!admin) {
@@ -33,7 +33,7 @@ exports.login = async (req, res) => {
 const otpStore = {};
 
 
-exports.sendEmail = async (req, res) => {
+exports.AdminsendEmail = async (req, res) => {
   try {
     const { email } = req.body;
     const admin = await Admin.findOne({ email });
@@ -55,7 +55,7 @@ exports.sendEmail = async (req, res) => {
 };
 
 
-exports.verifyOTPAndChangePassword = async (req, res) => {
+exports.AdminverifyOTPAndChangePassword = async (req, res) => {
   try {
     const { email, otp, newPassword } = req.body;
     const stored = otpStore[email];

@@ -156,7 +156,7 @@ exports.managerRegister = async (req, res) => {
 
 exports.getAllManager = async (req, res) => {
   let manager = await Manager.find();
-  return res.json({ message: "View All Admin", data: manager });
+  return res.json({ message: "View All Manager", data: manager });
 }; 
 
 

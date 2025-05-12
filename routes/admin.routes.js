@@ -30,7 +30,6 @@ routes.post("/change-password/:id", AdminchangePassword);
 //  MANAGER
 
 routes.get("/getManager", getAllManager);
-
 routes.put("/update-manager/:id",uploadImage.single('managerImage'), updateManager);
 routes.delete("/delete-manager/:id", deleteManager);
 routes.post("/manager-register", uploadImage.single("managerImage"), managerRegister);

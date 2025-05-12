@@ -6,8 +6,8 @@ const uploadImage = require("../middleware/imageUpload");
 const {
   verifyOTPAndChangePassword,
   login,
+  sendEmail,
 } = require("../controller/login.controller");
-const { sendEmail } = require("../controller/mail.controller");
 
 const app = express.Router();
 

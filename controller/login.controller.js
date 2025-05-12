@@ -1,6 +1,9 @@
 const Admin = require("../models/adminRegister.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const sendOTPEmail=require("../controller/mail.controller")
+
+
 
 exports.login = async (req, res) => {
   try {
@@ -20,12 +23,37 @@ exports.login = async (req, res) => {
       "test"
     );
 
-    return res.status(200).json({ message: "Login Successfully", token });
+    return res.status(200).json({ message: "Login Successfully", token,admin });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+const otpStore = {};
+
+
+exports.sendEmail = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const admin = await Admin.findOne({ email });
+
+    if (!admin) {
+      console.log("Admin not found...");
+      return res.status(404).json({ message: "Admin not found" });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    otpStore[email] = { otp, expiresAt: Date.now() + 10 * 60 * 1000 };
+
+    await sendOTPEmail(email, otp);
+    return res.status(200).json({ message: "OTP sent to email" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Error sending OTP" });
+  }
+};
+
 
 exports.verifyOTPAndChangePassword = async (req, res) => {
   try {

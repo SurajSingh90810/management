@@ -36,13 +36,24 @@ exports.profile = async (req, res) => {
 };
 
 exports.updateAdmin = async (req, res) => {
-  let admin = await Admin.findById(req.params.id);
-  if (!admin) {
-    return res.status(404).json({ message: "Admin not Found" });
+  try {
+    const admin = await Admin.findById(req.params.id);
+    if (!admin) {
+      return res.status(404).json({ message: "Admin not Found" });
+    }
+
+    if (req.body.password) {
+      const hashPassword = await bcrypt.hash(req.body.password, 10);
+      req.body.password = hashPassword;
+    }
+
+    const updatedAdmin = await Admin.findByIdAndUpdate(admin._id, req.body, { new: true });
+    return res.status(202).json({ message: "Update Admin Success", data: updatedAdmin });
+  } catch (error) {
+    return res.status(500).json({ message: "Server Error", error: error.message });
   }
-  admin = await Admin.findByIdAndUpdate(admin._id, req.body, { new: true });
-  return res.status(202).json({ message: "Update Admin Success", data: admin });
 };
+
 
 exports.deleteAdmin = async (req, res) => {
   let admin = await Admin.findById(req.params.id);
@@ -52,6 +63,8 @@ exports.deleteAdmin = async (req, res) => {
   admin = await Admin.findByIdAndDelete(admin._id);
   return res.status(200).json({ message: "Delete Admin Success" });
 };
+
+
 
 exports.changePassword = async (req, res) => {
   try {

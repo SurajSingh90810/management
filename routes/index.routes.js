@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { verifyAdminToken, verifyManagerToken } = require("../middleware/verifyToken");
+const { verifyAdminToken, verifyManagerToken, verifyEmployeeToken } = require("../middleware/verifyToken");
 const { adminRegister } = require("../controller/admin.controller");
 const uploadImage = require("../middleware/imageUpload");
 const {
@@ -9,6 +9,7 @@ const {
   AdminverifyOTPAndChangePassword,
 } = require("../controller/login.controller");
 const { Managerlogin, ManagersendEmail, ManagerverifyOTPAndChangePassword } = require("../controller/manager.controller");
+const { Employeelogin } = require("../controller/employee.controller");
 
 const app = express.Router();
 
@@ -26,6 +27,10 @@ app.post("/manager-login", Managerlogin);
 app.post("/manager-send-otp", ManagersendEmail);
 app.post("/manager-verify-otp", ManagerverifyOTPAndChangePassword);
 
+//  Employee
+
+app.use("/employee",verifyEmployeeToken,require("../routes/employee.routes"))
+app.post("/employee-login", Employeelogin);
 
 
 

@@ -83,51 +83,51 @@
 
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager-login</span>&nbsp;&nbsp;&nbsp;
   <strong>--> Login Manager</strong>
 </span><br><br>
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>GET:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager/manager-profile</span>&nbsp;&nbsp;&nbsp;
   <strong>-->  Manager Profile</strong>
 </span><br><br>
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager/manager-change-password</span>&nbsp;&nbsp;&nbsp;
   <strong>-->  Manager Change Password</strong>
 </span><br><br>
 
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager-send-otp</span>&nbsp;&nbsp;&nbsp;
   <strong>--> Manager Send otp Forget Password</strong>
 </span><br><br>
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager-verify-otp</span>&nbsp;&nbsp;&nbsp;
   <strong>--> Manager Verify Otp and Change Password </strong>
 </span><br><br>
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager/employee-register</span>&nbsp;&nbsp;&nbsp;
   <strong>--> Employee Register</strong>
 </span><br><br>
 
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>GET:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager/getEmployee</span>&nbsp;&nbsp;&nbsp;
   <strong>--> View All Employee </strong>
 </span><br><br>
 
 <span>
-  <strong>PUT:</strong>&nbsp;&nbsp;
+  <strong>DELETE:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/manager/delete-employee/:id</span>&nbsp;&nbsp;&nbsp;
   <strong>--> Employee Delete </strong>
 </span><br><br>

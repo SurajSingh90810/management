@@ -137,3 +137,39 @@
   <span style="font-size: 1.1em;">http://localhost:3000/manager/update-employee/:id</span>&nbsp;&nbsp;&nbsp;
   <strong>-->  Employee Update</strong>
 </span><br><br>
+
+
+
+<h1>Employee</h1>
+
+
+<span>
+  <strong>GET:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/employee-login</span>&nbsp;&nbsp;&nbsp;
+  <strong>--> Login Employee</strong>
+</span><br><br>
+
+<span>
+  <strong>GET:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/employee/employee-profile</span>&nbsp;&nbsp;&nbsp;
+  <strong>--> Employee Profile</strong>
+</span><br><br>
+
+<span>
+  <strong>POST:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/employee/employee-change-password/:id</span>&nbsp;&nbsp;&nbsp;
+  <strong>--> Change Password</strong>
+</span><br><br>
+
+<span>
+  <strong>POST:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/employee-send-otp</span>&nbsp;&nbsp;&nbsp;
+  <strong>--> Employee send Otp</strong>
+</span><br><br>
+
+
+<span>
+  <strong>POST:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/employee-verify-otp</span>&nbsp;&nbsp;&nbsp;
+  <strong>--> Employee Verify Otp and Change Password</strong>
+</span><br><br>

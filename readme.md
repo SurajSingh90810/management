@@ -1,5 +1,5 @@
 <span>Admin</span>
-  <span>POST</span>
-  <span> http://localhost:3000/register </span>
-  <span>Admin Register</span>
+
+  <span><h3>POST</h3> http://localhost:3000/register <h3>Admin Register</h3></span>
+
 

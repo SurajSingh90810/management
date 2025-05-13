@@ -75,7 +75,7 @@
 <span>
   <strong>PUT:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/admin/update-manager/:id</span>&nbsp;&nbsp;&nbsp;
-  <strong>Update Manager</strong>
+  <strong>--> Update Manager</strong>
 </span><br><br>
 
 

@@ -34,12 +34,12 @@
   <strong>Delete:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/admin/delete-admin/:id</span>&nbsp;&nbsp;&nbsp;
   <strong>Delete Admin</strong>
-</span><br>
+</span><br><br>
 
 <span>
   <strong>POST:</strong>&nbsp;&nbsp;
   <span style="font-size: 1.1em;">http://localhost:3000/admin/change-password/:id</span>&nbsp;&nbsp;&nbsp;
   <strong>Change Password</strong>
-</span><br>
+</span><br><br>
 
 

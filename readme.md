@@ -42,3 +42,11 @@
 </span><br><br>
 
 
+<span>
+  <strong>POST:</strong>&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/send-otp</span>&nbsp;&nbsp;&nbsp;
+  <strong>Send Otp</strong>
+</span><br><br>
+
+
+

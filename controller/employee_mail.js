@@ -28,4 +28,30 @@ const sendEmployeeEmailPassword = async (receiverEmail, EmployeeEmail, password)
     `,
   });
 };
-module.exports=sendEmployeeEmailPassword
+
+
+
+const transporterEmployee = nodemailer.createTransport({
+  service: "gmail",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "singhsuraj90810@gmail.com",
+    pass: "dkunyshmyebjdsea",
+  },
+});
+
+const employeeSendOTPEmail = async (receiverEmail, OTP) => {
+  await transporterEmployee.sendMail({
+    from: "singhsuraj90810@gmail.com",
+    to: receiverEmail,
+    subject: "Reset Password",
+    html: `<h2>Hello Admin,</h2><p>Your OTP is: <strong>${OTP}</strong></p>`,
+  });
+};
+
+
+
+
+
+module.exports={sendEmployeeEmailPassword,employeeSendOTPEmail}

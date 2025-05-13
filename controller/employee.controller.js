@@ -1,6 +1,7 @@
 const Employee=require("../models/employee.model")
 const bcrypt=require("bcrypt")
-const jwt=require("jsonwebtoken")
+const jwt=require("jsonwebtoken");
+const { employeeSendOTPEmail } = require("./employee_mail");
 
 
 exports.Employeelogin = async (req, res) => {
@@ -63,5 +64,62 @@ exports.EmployeechangePassword = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Server Error" });
+  }
+};
+
+
+
+
+
+const otpStore = {};
+
+
+exports.EmployeesendEmail = async (req, res) => {
+  try {
+    const { employeeEmail } = req.body;
+    const employee = await Employee.findOne({ employeeEmail });
+
+    if (!employee) {
+      console.log("Employee not found...");
+      return res.status(404).json({ message: "Employee not found" });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    otpStore[employeeEmail] = { otp, expiresAt: Date.now() + 10 * 60 * 1000 };
+
+    await employeeSendOTPEmail(employeeEmail, otp);
+    return res.status(200).json({ message: "OTP sent to email" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Error sending OTP" });
+  }
+};
+
+
+exports.employeeverifyOTPAndChangePassword = async (req, res) => {
+  try {
+    const { employeeEmail, otp, newPassword } = req.body;
+    const stored = otpStore[employeeEmail];
+
+    if (
+      !stored ||
+      stored.otp !== parseInt(otp) ||
+      Date.now() > stored.expiresAt
+    ) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
+
+    const employee = await Employee.findOne({ employeeEmail });
+    if (!employee) {
+      return res.status(404).json({ message: "Employee not found" });
+    }
+    const hashPassword = await bcrypt.hash(newPassword, 10);
+
+    employee.password = hashPassword;
+    await employee.save();
+    return res.status(200).json({ message: "Password changed successfully" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Error changing password" });
   }
 };

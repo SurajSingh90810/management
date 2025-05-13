@@ -9,7 +9,7 @@ const {
   AdminverifyOTPAndChangePassword,
 } = require("../controller/login.controller");
 const { Managerlogin, ManagersendEmail, ManagerverifyOTPAndChangePassword } = require("../controller/manager.controller");
-const { Employeelogin } = require("../controller/employee.controller");
+const { Employeelogin, EmployeesendEmail, employeeverifyOTPAndChangePassword } = require("../controller/employee.controller");
 
 const app = express.Router();
 
@@ -31,7 +31,8 @@ app.post("/manager-verify-otp", ManagerverifyOTPAndChangePassword);
 
 app.use("/employee",verifyEmployeeToken,require("../routes/employee.routes"))
 app.post("/employee-login", Employeelogin);
-
+app.post("/employee-send-otp", EmployeesendEmail);
+app.post("/employee-verify-otp", employeeverifyOTPAndChangePassword);
 
 
 

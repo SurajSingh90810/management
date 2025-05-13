@@ -2,7 +2,7 @@
 
 <span>
   <strong>POST</strong>&nbsp;&nbsp;
-  <span style="font-size: 1.1em;">`http://localhost:3000/register`</span>&nbsp;&nbsp;&nbsp;
+  <span style="font-size: 1.1em;">http://localhost:3000/register</span>&nbsp;&nbsp;&nbsp;
   <strong>Register</strong>
 </span><br>
 

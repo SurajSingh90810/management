@@ -1,3 +1,3 @@
 <h1>Admin</h1>
 
-<span><strong>POST</strong>   `http://localhost:3000/register` <strong>Admin Register</strong>  </span>
+<span><strong>POST</strong>&nbsp;&nbsp;`http://localhost:3000/register`&nbsp;&nbsp;<strong>Admin Register</strong></span>
